@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         openai chatgpt wide chat
-@version      20261007.15.10
+@version      20261007.18.00
 @namespace    https://userstyles.world/user/wakamex
 @description  makes the response field wide
 @author       wakamex
@@ -20,7 +20,6 @@
 
 [data-user-message-bubble] {
   --user-chat-width: 100% !important;
-  width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
