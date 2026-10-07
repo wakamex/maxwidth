@@ -1,0 +1,12 @@
+/* ==UserStyle==
+@name       claude wide chat max-width 100%
+@version    20261007.15.31
+@namespace  ?
+==/UserStyle== */
+
+@-moz-document domain("claude.ai") {
+[class*="max-w-"][class*="--transcript-width"] {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+}

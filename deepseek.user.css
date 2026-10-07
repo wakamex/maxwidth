@@ -1,0 +1,26 @@
+/* ==UserStyle==
+@name         deepseek wide chat max-width 100%
+@version      20261007.15.35
+@namespace    https://userstyles.world/user/wakamex
+@description  make the chat bog output and input on chat.deepseek.com wide
+@author       wakamex
+@license      No License
+==/UserStyle== */
+
+@-moz-document domain("chat.deepseek.com") {
+.ds-virtual-list {
+    --message-list-max-width: 100% !important;
+  }
+
+  .ds-virtual-list-items {
+    padding-inline: 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  .aaff8b8f {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-inline: 24px !important;
+  }
+}
