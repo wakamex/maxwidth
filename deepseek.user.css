@@ -1,10 +1,10 @@
 /* ==UserStyle==
 @name         deepseek wide chat max-width 100%
-@version      20261007.15.35
+@version      20261020.12.32
 @namespace    https://userstyles.world/user/wakamex
 @description  make the chat bog output and input on chat.deepseek.com wide
 @author       wakamex
-@license      No License
+@license      MIT
 ==/UserStyle== */
 
 @-moz-document domain("chat.deepseek.com") {

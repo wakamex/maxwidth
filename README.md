@@ -2,13 +2,13 @@
 
 Three [Stylus](https://github.com/openstyles/stylus) user styles, in the [UserCSS](https://github.com/openstyles/stylus/wiki/Writing-UserCSS) format, that widen the conversation and composer of AI chat sites to the available width. Users install and update them from [UserStyles.world](https://userstyles.world/) (USw); this repository is the source those listings mirror.
 
-| File | Site | Install |
-| --- | --- | --- |
-| `chatgpt.user.css` | chatgpt.com | [style 13403](https://userstyles.world/style/13403/chatgpt-wide-chat-max-width-100) |
-| `claude.user.css` | claude.ai | [style 30655](https://userstyles.world/style/30655) |
-| `deepseek.user.css` | chat.deepseek.com | [style 20024](https://userstyles.world/style/20024/deepseek-wide-chat-max-width-100) |
+| File | Site | Install | Source USw mirrors |
+| --- | --- | --- | --- |
+| `chatgpt.user.css` | chatgpt.com | [style 13403](https://userstyles.world/style/13403/chatgpt-wide-chat-max-width-100) | https://raw.githubusercontent.com/wakamex/maxwidth/main/chatgpt.user.css |
+| `claude.user.css` | claude.ai | [style 30655](https://userstyles.world/style/30655) | https://raw.githubusercontent.com/wakamex/maxwidth/main/claude.user.css |
+| `deepseek.user.css` | chat.deepseek.com | [style 20024](https://userstyles.world/style/20024/deepseek-wide-chat-max-width-100) | https://raw.githubusercontent.com/wakamex/maxwidth/main/deepseek.user.css |
 
-Each file keeps the name, author, namespace, and license its USw listing declares. The ChatGPT and DeepSeek styles declare `@license No License`; the Claude style declares none.
+Each file keeps the name, author, and namespace its USw listing declares, and declares `@license MIT`.
 
 ## Checks
 
@@ -142,11 +142,9 @@ To watch a run, add `--headed` under a display, or `xvfb-run -a` on a headless m
 ## Publishing
 
 1. Edit the style and raise `@version`. The versions are the UTC time of the change as `YYYYMMDD.HH.MM`; Stylus and USw compare them numerically.
-2. Run the live check with `--source repo`, then push. CI fails a change to a style's code that leaves `@version` unchanged.
-3. USw picks up the change by mirroring the file's raw URL, such as `https://raw.githubusercontent.com/wakamex/maxwidth/main/chatgpt.user.css`. To set this up once per style, open the style's edit page on USw, set the source URL to that raw URL, enable "Mirror source code updates", and save. USw checks mirrored styles every four hours, at four minutes past 00:00, 04:00, and so on (UTC), and replaces the code when `@version` differs from the stored one. Opening the raw URL with Stylus installed should show its install page.
-
-USw fetches without credentials, so mirroring requires this repository to be public. While it is private, paste the new code into the USw edit page instead.
+2. Run the live check with `--source repo`, the unit tests, and `python3 lint.py --base origin/main`, then push. Every push to `main` is a release: USw may copy it before CI finishes. CI repeats the tests and the lint, and fails a change to a style's code that leaves `@version` unchanged.
+3. USw picks up the change by mirroring the file's raw URL, listed in the table above. To set this up once per style, open the style's edit page on USw, set the source URL to that raw URL, enable "Mirror source code updates", and save. USw checks mirrored styles every four hours, at four minutes past 00:00, 04:00, and so on (UTC), and replaces the code when `@version` differs from the stored one. Opening the raw URL with Stylus installed should show its install page.
 
 ## License
 
-The styles carry the licenses their headers declare. The check scripts have no license yet.
+Everything in this repository, the styles and the check scripts, is under the [MIT License](LICENSE).
