@@ -105,6 +105,10 @@ A [systemd](https://systemd.io/) user timer runs it once a day:
 
 ```ini
 # ~/.config/systemd/user/maxwidth-check.service
+[Unit]
+# Optional: a run in which a verdict changes exits with status 1, so a handler such as this one hears about it.
+OnFailure=agent-notify@%n.service
+
 [Service]
 Type=oneshot
 WorkingDirectory=/path/to/maxwidth

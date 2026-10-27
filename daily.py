@@ -1,5 +1,8 @@
 """Daily live check of the published styles, with a notification when a verdict changes.
 
+A run in which a verdict changes exits with status 1, so a systemd OnFailure= handler hears
+about it as well as the notify_command; a run with no change exits 0.
+
 Reads `[daily]` from the check's config file:
 
     export_command = ["ssh", "windows", "python", "-"]   # gets firefox_state.py on stdin
@@ -60,8 +63,8 @@ def main() -> int:
     if changed and daily.get("notify_command"):
         subject = "maxwidth: " + "; ".join(changed)
         subprocess.run([*daily["notify_command"], subject], input=body.encode(), check=True, timeout=120)
-    # Verdicts go out through the notification; the unit fails only if the run itself fails.
-    return 0
+    # A changed verdict also fails the unit, for an OnFailure= handler; the report above is its output.
+    return 1 if changed else 0
 
 
 if __name__ == "__main__":
